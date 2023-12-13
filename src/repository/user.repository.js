@@ -1,29 +1,29 @@
 const { TableUser, ObjectId } = require('../db');
 
 async function getUserDB() {
-  const data = await TableUser.find();
-  return data;
+  return await TableUser.find();
 }
 
 async function createUserDB(user) {
   await TableUser.create(user);
 
-  const data = await TableUser.find();
-  return data;
+  return await TableUser.find();
 }
 
 async function updateUserDB(_id, user) {
   await TableUser.updateOne({ _id: new ObjectId(_id) }, { $set: user });
 
-  const data = await TableUser.find();
-  return data;
+  return await TableUser.find();
 }
 
 async function deleteUserDB(_id) {
   await TableUser.deleteOne({ _id: new ObjectId(_id) });
 
-  const data = await TableUser.find();
-  return data;
+  return await TableUser.find();
 }
 
-module.exports = { getUserDB, createUserDB, updateUserDB, deleteUserDB };
+async function getUserByIdDB(_id) {
+  return await TableUser.findById({ _id: new ObjectId(_id) });
+}
+
+module.exports = { getUserDB, createUserDB, updateUserDB, deleteUserDB, getUserByIdDB };

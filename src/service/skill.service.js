@@ -7,28 +7,23 @@ const {
 } = require('../repository/skill.repository');
 
 async function getSkill() {
-  const data = await getSkillDB();
-  return data;
+  return await getSkillDB();
 }
 
 async function createSkill(skill) {
-  const data = await createSkillDB(skill);
-  return data;
+  return await createSkillDB(skill);
 }
 
 async function updateSkill(_id, skill) {
-  const data = await updateSkillDB(_id, skill);
-  return data;
+  return await updateSkillDB(_id, skill);
 }
 
 async function deleteSkill(_id) {
-  const data = await deleteSkillDB(_id);
-  return data;
+  return await deleteSkillDB(_id);
 }
 
 async function getSkillById(_id) {
-  const data = await getSkillByIdDB(_id);
-  return data;
+  return await getSkillByIdDB(_id);
 }
 
 module.exports = { getSkill, createSkill, updateSkill, deleteSkill, getSkillById };

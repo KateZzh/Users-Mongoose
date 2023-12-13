@@ -6,51 +6,52 @@ const {
   deleteSkill,
   getSkillById,
 } = require('../service/skill.service');
+const buildResponse = require('../helper/buildResponse');
 
 const route = express.Router();
 
 route.get('/', async (req, res) => {
   try {
     const data = await getSkill();
-    res.status(200).send(data);
+    buildResponse(res, 200, data);
   } catch (error) {
-    res.status(404).send(error.message);
+    buildResponse(res, 404, error.message);
   }
 });
 
 route.post('/', async (req, res) => {
   try {
     const data = await createSkill(req.body);
-    res.status(200).send(data);
+    buildResponse(res, 200, data);
   } catch (error) {
-    res.status(404).send(error.message);
+    buildResponse(res, 404, error.message);
   }
 });
 
 route.put('/:_id', async (req, res) => {
   try {
     const data = await updateSkill(req.params._id, req.body);
-    res.status(200).send(data);
+    buildResponse(res, 200, data);
   } catch (error) {
-    res.status(404).send(error.message);
+    buildResponse(res, 404, error.message);
   }
 });
 
 route.delete('/:_id', async (req, res) => {
   try {
     const data = await deleteSkill(req.params._id);
-    res.status(200).send(data);
+    buildResponse(res, 200, data);
   } catch (error) {
-    res.status(404).send(error.message);
+    buildResponse(res, 404, error.message);
   }
 });
 
 route.get('/:_id', async (req, res) => {
   try {
     const data = await getSkillById(req.params._id);
-    res.status(200).send(data);
+    buildResponse(res, 200, data);
   } catch (error) {
-    res.status(404).send(error.message);
+    buildResponse(res, 404, error.message);
   }
 });
 
